@@ -1,4 +1,5 @@
 import java.awt.Dimension;
+import java.awt.Rectangle;
 import java.awt.Graphics;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.AffineTransform;
