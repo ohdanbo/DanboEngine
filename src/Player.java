@@ -18,6 +18,7 @@ public class Player {
 	public void render(Graphics g) {
 		g.setColor(Color.GREEN);
 		g.fillRect(playerX, playerY, playerWidth, playerHeight);
+		g.fillRect(collideyRectangle.x, collideyRectangle.y, collideyRectangle.width, collideyRectangle.height);
 	}
 	
 	public void update() {
@@ -26,26 +27,36 @@ public class Player {
 		
 		if(Globals.up) {
 			tempRectangle.y -= speed;
-			if(tempRectangle.intersects(collideyRectangle) == true){
-				return;
+			if(!tempRectangle.intersects(collideyRectangle)){
+				playerY -= speed;
 			}
-			playerY -= speed;
+			
+			tempRectangle.y += speed;
+			
 		}
 		if(Globals.down) {
 			tempRectangle.y += speed;
-			if(tempRectangle.intersects(collideyRectangle))return;
-			playerY += speed;
+			if(!tempRectangle.intersects(collideyRectangle)){
+				playerY += speed;
+			}
+			
+			tempRectangle.y -= speed;
+			
 		}
 		if(Globals.left) {
 			tempRectangle.x -= speed;
-			if(tempRectangle.intersects(collideyRectangle))return;
-			playerX -= speed;
+			if(!tempRectangle.intersects(collideyRectangle)){
+				playerX -= speed;
+			}
+			
+			tempRectangle.x += speed;
 		}
 		if(Globals.right) {
 			tempRectangle.x += speed;
+			if(!tempRectangle.intersects(collideyRectangle)){
+				playerX += speed;
+			}
 			
-			if(tempRectangle.intersects(collideyRectangle))return;
-			playerX += speed;
 		}
 	}
 	
