@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 
 
@@ -11,6 +12,8 @@ public class PlayState {
 	}
 	
 	public void render(Graphics g, Player player) {
+		g.setColor(Color.WHITE);
+		g.fillRect(0, 0, Globals.screenWidth, Globals.screenHeight);
 		player.render(g);
 		//hud.render(g);
 		this.player = player;

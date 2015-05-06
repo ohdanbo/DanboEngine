@@ -1,5 +1,7 @@
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
@@ -14,14 +16,18 @@ public class Screen extends Canvas implements Runnable {
 	private AboutState about;
 
 	private Player player;
+	
+	private Font font;
 
 	public Screen() {
-		setMinimumSize(Globals.SIZE);
-		setMaximumSize(Globals.SIZE);
-		setPreferredSize(Globals.SIZE);
+		setMinimumSize(new Dimension(Globals.SIZE.width, Globals.SIZE.height));
+		setMaximumSize(new Dimension(Globals.SIZE.width, Globals.SIZE.height));
+		setPreferredSize(new Dimension(Globals.SIZE.width, Globals.SIZE.height));
 		
 		addKeyListener(new Keyboard());
+		requestFocus();
 		
+		font = new Font("Arial", Font.PLAIN, 12);
 		menu = new MainMenu();
 		play = new PlayState();
 		about = new AboutState();
@@ -104,7 +110,16 @@ public class Screen extends Canvas implements Runnable {
 		} else if(Globals.STATE == 2){
 			about.render(g);
 		}
-		
+
+		if(Globals.showFPS) {
+			g.setFont(font);
+			if(Globals.STATE == 1) {
+				g.setColor(Color.BLACK);
+			} else {
+				g.setColor(Color.WHITE);
+			}
+			g.drawString(fps + "fps", 10, 18);
+		}
 		
 		g.dispose();
 		bs.show();

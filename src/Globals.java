@@ -8,9 +8,11 @@ public class Globals {
 	public static final String TITLE = "Game Engine";
 	public static final int WIDTH = 900;
 	public static final int HEIGHT = WIDTH / 16*9;
+	public static final int screenWidth = WIDTH + 10;
+	public static final int screenHeight = HEIGHT + 10;
 	public static final Dimension SIZE = new Dimension(WIDTH, HEIGHT);
 	
-	public static boolean up, down, left, right, uparrow, downarrow, enter, escape;
+	public static boolean up, down, left, right, uparrow, downarrow, enter, escape, showFPS;
 	
 	public static int STATE = 0;
 	

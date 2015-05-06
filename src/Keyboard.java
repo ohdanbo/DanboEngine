@@ -15,6 +15,13 @@ public class Keyboard implements KeyListener {
 		if(keycode == KeyEvent.VK_DOWN || keycode == KeyEvent.VK_S) Globals.downarrow = true;
 		if(keycode == KeyEvent.VK_ENTER) Globals.enter = true;
 		if(keycode == KeyEvent.VK_ESCAPE) Globals.escape = true;
+		if(keycode == KeyEvent.VK_F3) {
+			if(!Globals.showFPS) {
+				Globals.showFPS = true;
+			} else {
+				Globals.showFPS = false;
+			}
+		}
 	}
 	public void keyReleased(KeyEvent e) {
 		int keycode = e.getKeyCode();

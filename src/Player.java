@@ -6,7 +6,7 @@ public class Player {
 	
 	private int playerWidth = 20, playerHeight = 20;
 	
-	private int playerX = (Globals.WIDTH / 2) - (playerWidth / 2), playerY = (Globals.HEIGHT /2) - (playerHeight / 2);
+	private int playerX = (Globals.screenWidth / 2) - (playerWidth / 2), playerY = (Globals.screenHeight / 2) - (playerHeight / 2);
 	
 	private int speed = 1;
 	
@@ -20,21 +20,29 @@ public class Player {
 	
 	public void update() {
 		if(Globals.up) {
-			playerY -= speed;
+			if(playerY >= 0) {
+				playerY -= speed;
+			}
 		}
 		if(Globals.down) {
-			playerY += speed;
+			if(playerY+playerHeight <= Globals.screenHeight) {
+				playerY += speed;
+			}
 		}
 		if(Globals.left) {
-			playerX -= speed;
+			if(playerX >= 0) {
+				playerX -= speed;
+			}
 		}
 		if(Globals.right) {
-			playerX += speed;
+			if(playerX+playerWidth <= Globals.screenWidth) {
+				playerX += speed;
+			}
 		}
 	}
 	
 	public void resetCoords() {
-		playerX = (Globals.WIDTH / 2) - (playerWidth / 2);
-		playerY = (Globals.HEIGHT /2) - (playerHeight / 2)-30;
+		playerX = (Globals.screenWidth / 2) - (playerWidth / 2);
+		playerY = (Globals.screenHeight /2) - (playerHeight / 2)-30;
 	}
 }

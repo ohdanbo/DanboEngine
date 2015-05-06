@@ -12,9 +12,6 @@ public class MainMenu {
 
 	private boolean playHover = true, aboutHover = false, exitHover = false;
 	
-	private final int width = Globals.WIDTH + 10;
-	private final int height = Globals.HEIGHT + 10;
-	
 	private BufferedImage logo, play, about, exit;
 	
 	public MainMenu() {
@@ -30,11 +27,11 @@ public class MainMenu {
 	
 	public void render(Graphics g) {
 		g.setColor(new Color(0x1a2328));
-		g.fillRect(0, 0, width, height);
+		g.fillRect(0, 0, Globals.screenWidth, Globals.screenHeight);
 		
 		g.setColor(Color.WHITE);
 
-		g.drawImage(logo, (width/2)-(logo.getWidth()/2), 50, null);
+		g.drawImage(logo, (Globals.screenWidth/2)-(logo.getWidth()/2), 50, null);
 		
 //		g.drawImage(play, (width/2)-(play.getWidth()/2), 180, null);
 //		g.drawImage(about, (width/2)-(about.getWidth()/2), 190, null);
@@ -48,40 +45,40 @@ public class MainMenu {
 			g.setColor(Color.GREEN);
 			g.setFont(new Font("Arial", Font.BOLD, 20));
 			int strWidth = Globals.getStrWidth(g, "Play");
-			g.drawString("Play", (width / 2) - (strWidth / 2), 180);
+			g.drawString("Play", (Globals.screenWidth / 2) - (strWidth / 2), 180);
 
 			g.setColor(Color.WHITE);
 			strWidth = Globals.getStrWidth(g, "About");
-			g.drawString("About", (width / 2) - (strWidth / 2), 215);
+			g.drawString("About", (Globals.screenWidth / 2) - (strWidth / 2), 215);
 
 			strWidth = Globals.getStrWidth(g, "Exit");
-			g.drawString("Exit", (width / 2) - (strWidth / 2), 245);
+			g.drawString("Exit", (Globals.screenWidth / 2) - (strWidth / 2), 245);
 		} else if (aboutHover) {
 			g.setColor(Color.WHITE);
 			g.setFont(new Font("Arial", Font.BOLD, 20));
 			int strWidth = Globals.getStrWidth(g, "Play");
-			g.drawString("Play", (width / 2) - (strWidth / 2), 180);
+			g.drawString("Play", (Globals.screenWidth / 2) - (strWidth / 2), 180);
 
 			g.setColor(Color.GREEN);
 			strWidth = Globals.getStrWidth(g, "About");
-			g.drawString("About", (width / 2) - (strWidth / 2), 215);
+			g.drawString("About", (Globals.screenWidth / 2) - (strWidth / 2), 215);
 
 			g.setColor(Color.WHITE);
 			strWidth = Globals.getStrWidth(g, "Exit");
-			g.drawString("Exit", (width / 2) - (strWidth / 2), 245);
+			g.drawString("Exit", (Globals.screenWidth / 2) - (strWidth / 2), 245);
 		} else if(exitHover) {
 			g.setColor(Color.WHITE);
 			g.setFont(new Font("Arial", Font.BOLD, 20));
 			int strWidth = Globals.getStrWidth(g, "Play");
-			g.drawString("Play", (width / 2) - (strWidth / 2), 180);
+			g.drawString("Play", (Globals.screenWidth / 2) - (strWidth / 2), 180);
 
 			g.setColor(Color.WHITE);
 			strWidth = Globals.getStrWidth(g, "About");
-			g.drawString("About", (width / 2) - (strWidth / 2), 215);
+			g.drawString("About", (Globals.screenWidth / 2) - (strWidth / 2), 215);
 
 			g.setColor(Color.GREEN);
 			strWidth = Globals.getStrWidth(g, "Exit");
-			g.drawString("Exit", (width / 2) - (strWidth / 2), 245);
+			g.drawString("Exit", (Globals.screenWidth / 2) - (strWidth / 2), 245);
 		}
 	}
 
